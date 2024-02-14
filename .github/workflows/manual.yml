@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install zip
         run: sudo apt-get install -y zip
@@ -21,7 +21,7 @@ jobs:
           zip -r "vaultPass_firefox.zip" .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: vaultPass_firefox
           path: .
