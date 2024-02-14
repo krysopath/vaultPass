@@ -20,7 +20,6 @@ jobs:
       - name: Package extension
         run: |
           branch=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
-
           zip -r "vaultPass_$branch.zip" .
 
       - name: Upload artifact
