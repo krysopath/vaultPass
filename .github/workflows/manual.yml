@@ -13,16 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install zip
-        run: sudo apt-get install -y zip
-
       - name: Package extension
         run: |
-          zip -r "vaultPass_firefox.zip" .
+          mkdir -p build/firefox
+          cp -r manifest.json *html *js icons/ icon.svg build/firefox/
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: vaultPass_firefox
-          path: .
+          path: build/firefox/
 
