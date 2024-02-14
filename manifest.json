@@ -22,7 +22,7 @@
     }
   ],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   "permissions": ["activeTab", "storage", "clipboardWrite", "idle", "alarms"]
 }

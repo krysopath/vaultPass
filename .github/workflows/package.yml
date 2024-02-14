@@ -1,0 +1,28 @@
+name: Package Extension
+
+on:
+  push:
+    branches:
+      - firefox
+
+jobs:
+  package-extension:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install zip
+        run: sudo apt-get install -y zip
+
+      - name: Package extension
+        run: |
+          branch=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
+          zip -r "vaultPass_$branch.zip" .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: extension
+          path: vaultPass__$branch.zip
